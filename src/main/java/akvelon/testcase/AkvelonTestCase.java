@@ -32,12 +32,12 @@ public class AkvelonTestCase {
         String url = "https://jsonmock.hackerrank.com/api/article_users";
         StringBuffer response = getRequest(url);
         Map contents = getContentFromResponse(response);
-        int total_value = (int) contents.get("total_pages");
+        int total_pages = (int) contents.get("total_pages");
 //        System.out.println(total_pages);
 
 
         // iterate through the pages to gather info
-        for (int i = 1; i <= total_value; i++) {
+        for (int i = 1; i <= total_pages; i++) {
             url = "https://jsonmock.hackerrank.com/api/article_users?page=" + i;
             processEachPage(url);
         }
